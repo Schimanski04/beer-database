@@ -1,0 +1,42 @@
+﻿@page
+@model BeerDatabase.Pages.DeleteModel
+@{
+    ViewData["Title"] = "Vymazat";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (Model.Type == "beerpub")
+{
+    <hr/>
+
+    <form class="row g-3" method="post">
+        <div class="col-md-12">
+            <select asp-for="@Model.Select" class="form-select" aria-label="Default select example">
+                <option value="0">Vyberte vazbu</option>
+
+                @foreach (var bp in Model.BeerPubs)
+                {
+                    <option value="@bp.BeerId;@bp.PubId">@bp.Pub.Name (@bp.Beer.Name)</option>
+                }
+            </select>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-danger" type="submit">Vymazat</button>
+        </div>
+    </form>
+}
+else
+{
+    <hr/>
+
+    <fieldset class="border p-2" style="border-radius: .25rem;">
+        <legend class="w-auto">Opravdu si přejete položku vymazat z databáze?</legend>
+
+        <div class="col-md-12" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+            <a asp-page-handler="Delete" asp-route-type="@Model.Type" asp-route-id="@Model.Id" class="btn btn-success" role="button" style="width: 49%;">Ano</a>
+            <a asp-page-handler="Cancel" class="btn btn-danger" role="button" style="width: 49%;">Ne</a>
+        </div>
+    </fieldset>
+}
