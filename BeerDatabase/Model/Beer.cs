@@ -35,7 +35,7 @@ namespace BeerDatabase.Model
         public Brewery Brewery { get; set; }
 
         // 1:N
-        [Required(ErrorMessage = "Vyberte druh piva!")]
+        //[Required(ErrorMessage = "Vyberte druh piva!")]
         public int KindId { get; set; }
         public Kind Kind { get; set; }
 

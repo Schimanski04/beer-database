@@ -1,20 +1,19 @@
-﻿@*@page
-@model BeerDatabase.Pages.BreweryModel
+﻿@page
+@model BeerDatabase.Areas.Breweries.Pages.IndexModel
 @{
     ViewData["Title"] = "Pivovary";
 }
 
 <h1>@ViewData["Title"]</h1>
 
-
 @if (Model.Breweries.Count == 0)
 {
     <h4>Seznam pivovarů je prázdný</h4>
-    <hr/>
+    <hr />
 }
 else
 {
-    <hr/>
+    <hr />
 
     <div class="row row-cols-1 row-cols-md-6 g-4">
         @foreach (var b in Model.Breweries)
@@ -30,5 +29,4 @@ else
     </div>
 }
 
-<a asp-page="./Create" asp-route-type="brewery" class="btn btn-primary" style="margin-top: 16px;" role="button">Přidat do databáze nový pivovar</a>
-*@
+<a asp-page="./Create" class="btn btn-primary" style="margin-top: 16px;" role="button">Přidat do databáze nový pivovar</a>

@@ -1,11 +1,11 @@
-﻿@*@page
-@model BeerDatabase.Pages.PubModel
+﻿@page
+@model BeerDatabase.Areas.Pubs.Pages.IndexModel
 @{
     ViewData["Title"] = "Hospody";
 }
 
 <h1>@ViewData["Title"]</h1>
-<hr/>
+<hr />
 
 @if (Model.Pubs.Count == 0)
 {
@@ -15,7 +15,7 @@ else
 {
     <p>
         <a class="btn btn-primary collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Filtry</a>
-        <a asp-page="./Pub" class="btn btn-primary">Zobrazit celý seznam</a>
+        <a asp-page="./Index" asp-area="Pubs" class="btn btn-primary">Zobrazit celý seznam</a>
     </p>
     <div class="collapse" id="collapseExample" style="">
         <div class="card card-body">
@@ -35,12 +35,12 @@ else
         <thead>
             <tr>
                 <th>
-                    <a asp-page="./Pub" asp-route-sortOrder="@Model.NameSort" style="text-decoration: none;">
+                    <a asp-page="./Index" asp-area="Pubs" asp-route-sortOrder="@Model.NameSort" style="text-decoration: none;">
                         Název hospody
                     </a>
                 </th>
                 <th style="text-align: center;">
-                    <a asp-page="./Pub" asp-route-sortOrder="@Model.RatingSort" style="text-decoration: none;">
+                    <a asp-page="./Index" asp-area="Pubs" asp-route-sortOrder="@Model.RatingSort" style="text-decoration: none;">
                         Hodnocení
                     </a>
                 </th>
@@ -56,7 +56,7 @@ else
                     <td class="text-center">@p.Rating</td>
                     <td>@p.Location</td>
                     <td>
-                        <a asp-page="./Details" asp-route-type="pub" asp-route-id="@p.PubId" class="btn btn-primary" role="button">Detail</a>
+                        <a asp-page="./Details" asp-area="Pubs" asp-route-id="@p.PubId" class="btn btn-primary" role="button">Detail</a>
                     </td>
                 </tr>
             }
@@ -64,7 +64,6 @@ else
     </table>
 }
 
-<a asp-page="./Create" asp-route-type="pub" class="btn btn-primary" style="margin-top: 16px;" role="button">Přidat do databáze novou hospodu</a>
-<a asp-page="./Create" asp-route-type="beerpub" class="btn btn-primary" style="margin-top: 16px;" role="button">Přidat vazbu pivo – hospoda</a>
-<a asp-page="./Delete" asp-route-type="beerpub" class="btn btn-danger" style="margin-top: 16px;" role="button">Odstranit vazbu pivo – hospoda</a>
-*@
+<a asp-page="./Create" asp-area="Pubs" class="btn btn-primary" style="margin-top: 16px;" role="button">Přidat do databáze novou hospodu</a>
+<a asp-page="./Create" asp-area="BeerPubs" class="btn btn-primary" style="margin-top: 16px;" role="button">Přidat vazbu pivo – hospoda</a>
+<a asp-page="./Delete" asp-area="BeerPubs" class="btn btn-danger" style="margin-top: 16px;" role="button">Odstranit vazbu pivo – hospoda</a>
