@@ -10,7 +10,7 @@ namespace BeerDatabase.Model
         [Required(ErrorMessage = "Zadejte název pivovaru!")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Zadejte město, ve kterém se pivovar nachází!")]
+        [Required(ErrorMessage = "Zadejte adresu pivovaru!")]
         public string Location { get; set; }
 
         [Required(ErrorMessage = "Zadejte telefonní číslo do pivovaru!")]

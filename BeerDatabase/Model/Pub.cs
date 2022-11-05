@@ -8,20 +8,19 @@ namespace BeerDatabase.Model
         public int PubId { get; set; }
 
         [Required(ErrorMessage = "Zadejte název hospody!")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
-        [Required(ErrorMessage = "Zadejte město, ve kterém se hospoda nachází!")]
-        public string Location { get; set; }
+        [Required(ErrorMessage = "Zadejte adresu hospody!")]
+        public string? Location { get; set; }
 
         [Required(ErrorMessage = "Zadejte telefonní číslo do hospody!")]
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
-        [Required(ErrorMessage = "Zadejte hodnocení podniku!")]
-        public double Rating { get; set; } // pomocí této vlastnosti by si mohl admin seřadit podniky dle hodnocení
+        public double Rating { get; set; }
 
 
         // Vztahy mezi tabulkami
         // N:M
-        public List<Beer> Beers { get; set; }
+        public List<Beer>? Beers { get; set; }
     }
 }

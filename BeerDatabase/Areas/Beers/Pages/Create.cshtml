@@ -23,6 +23,7 @@
                 <option value="@b.BreweryId">@b.Name</option>
             }
         </select>
+        <span asp-validation-for="@Model.Beer.BreweryId" class="text-danger"></span>
     </div>
     <div class="col-md-12">
         <label asp-for="@Model.Beer.Description" class="form-label">Popis</label>
@@ -36,24 +37,25 @@
             @foreach (var k in Model.Kinds)
             {
                 <div class="form-check">
-                    <input asp-for="@Model.Beer.KindId" class="form-check-input" type="radio" name="flexRadioDefault" id="@k.Type" value="@k.KindId">
-                    <label class="form-check-label" for="@k.Type">
+                    <input asp-for="@Model.Beer.KindId" class="form-check-input" type="radio" id="@k.KindId" value="@k.KindId">
+                    <label class="form-check-label" for="@k.KindId">
                         @k.Type
                     </label>
                 </div>
             }
+            <span asp-validation-for="@Model.Beer.KindId" class="text-danger"></span>
         </fieldset>
     </div>
 
     <div class="col-md-12">
-        <label asp-for="@Model.Beer.AlcoholContent" class="form-label">Obsah alkoholu (v <b>%</b> na objem piva)</label>
-        <input asp-for="@Model.Beer.AlcoholContent" type="number" min="0" max="100" step="0.1" class="form-control">
-        <span asp-validation-for="@Model.Beer.AlcoholContent" class="text-danger"></span>
+        <label asp-for="@Model.AlcoholContent" class="form-label">Obsah alkoholu (v <b>%</b> na objem piva)</label>
+        <input asp-for="@Model.AlcoholContent" type="number" min="0" max="100" step="0.1" class="form-control">
+        <span asp-validation-for="@Model.AlcoholContent" class="text-danger"></span>
     </div>
     <div class="col-md-12">
-        <label asp-for="@Model.Beer.PricePerHalfLitre" class="form-label">Cena piva za <b>0,5 l</b> s DPH</label>
-        <input asp-for="@Model.Beer.PricePerHalfLitre" type="number" min="0" step="0.01" class="form-control">
-        <span asp-validation-for="@Model.Beer.PricePerHalfLitre" class="text-danger"></span>
+        <label asp-for="@Model.PricePerHalfLitre" class="form-label">Cena piva za <b>0,5 l</b> s DPH</label>
+        <input asp-for="@Model.PricePerHalfLitre" type="number" min="0" step="0.01" class="form-control">
+        <span asp-validation-for="@Model.PricePerHalfLitre" class="text-danger"></span>
     </div>
     <div class="col-md-12">
         <label asp-for="@Model.Beer.ImgSrc" class="form-label">Zdrojová adresa náhledového obrázku (ideálně v poměru 1:1)</label>
@@ -68,6 +70,6 @@
 
     <div class="col-12">
         <button class="btn btn-primary" type="submit">Přidat</button>
-        <a asp-page="./Index" asp-area="Beers" class="btn btn-danger" role="button">Zrušit</a>
+        <a asp-page="./Index" class="btn btn-danger" role="button">Zrušit</a>
     </div>
 </form>

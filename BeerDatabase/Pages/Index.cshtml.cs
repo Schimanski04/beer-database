@@ -18,7 +18,6 @@ namespace BeerDatabase.Pages
         [TempData]
         public string InfoMessage { get; set; }
 
-
         public void OnGet()
         {
 

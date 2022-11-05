@@ -21,7 +21,7 @@ else
             <div class="col">
                 <div class="card">
                     <div class="img-hover-zoom">
-                        <a asp-page="./Details" asp-route-type="beer" asp-route-id="@b.BeerId"><img src="@b.ImgSrc" class="card-img-top" alt="@b.ImgTitle" title="@b.ImgTitle"></a>
+                        <a asp-page="./Details" asp-route-id="@b.BeerId"><img src="@b.ImgSrc" class="card-img-top" alt="@b.ImgTitle" title="@b.ImgTitle"></a>
                     </div>
                 </div>
             </div>
@@ -30,5 +30,5 @@ else
 }
 
 <a asp-page="./Create" class="btn btn-primary" style="margin-top: 16px;" role="button">Přidat do databáze nové pivo</a>
-<a asp-page="./BeerPubs/Create" class="btn btn-primary" style="margin-top: 16px;" role="button">Přidat vazbu pivo – hospoda</a>
-<a asp-page="./BeerPubs/Delete" class="btn btn-danger" style="margin-top: 16px;" role="button">Odstranit vazbu pivo – hospoda</a>
+<a asp-page="./Create" asp-area="BeerPubs" class="btn btn-primary" style="margin-top: 16px;" role="button">Přidat vazbu pivo – hospoda</a>
+<a asp-page="./Delete" asp-area="BeerPubs" class="btn btn-danger" style="margin-top: 16px;" role="button">Odstranit vazbu pivo – hospoda</a>
