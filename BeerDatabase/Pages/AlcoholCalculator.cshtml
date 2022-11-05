@@ -67,8 +67,8 @@
 
 @if (Model.Promile != 0 && Model.TimeToSober != 0)
 {
-    <div class="alert alert-danger" style="margin-top: 16px;" role="alert">
-        <h5 class="text-center" style="text-transform: uppercase; font-weight: bold;">Váš aktuální stav</h5>
+    <div id="result-calculator" class="alert alert-danger" style="margin-top: 16px;" role="alert">
+        <h5 id="result-heading" class="text-center" style="text-transform: uppercase; font-weight: bold;">Momentálně nemůžete řídit</h5>
 
         <div style="display: flex; flex-direction: row; justify-content: space-around; align-items: center;">
             <div style="width: 25%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
@@ -83,3 +83,17 @@
         </div>
     </div>
 }
+
+<script>
+    if (@Model.Promile != 0) {
+        const result_calculator = document.getElementById("result-calculator");
+        const result_heading = document.getElementById("result-heading");
+
+        if (@Model.RemainingTime == 0) {
+            result_calculator.classList.remove("alert-danger");
+            result_calculator.classList.add("alert-success");
+
+            result_heading.innerHTML = "Momentálně můžete řídit";
+        }
+    }
+</script>

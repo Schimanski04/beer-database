@@ -77,6 +77,7 @@ namespace BeerDatabase.Pages
 
                     if (Math.Round(TimeToSober - timeSinceDrinking, 2) < 0)
                     {
+                        RemainingTime = 0;
                         RemainingTimeString = "0 h";
                     }
                     else
@@ -96,6 +97,7 @@ namespace BeerDatabase.Pages
 
                     if (Math.Round(TimeToSober - timeSinceDrinking, 2) < 0)
                     {
+                        RemainingTime = 0;
                         RemainingTimeString = "0 h";
                     }
                     else
