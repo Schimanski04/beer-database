@@ -20,7 +20,6 @@ namespace BeerDatabase.Pages
 
         public void OnGet()
         {
-
         }
     }
 }
